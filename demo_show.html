@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Blank</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="demo_show.html">
+                <div class="sidebar-brand-text mx-3">牙位表示DEMO</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="demo_show.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>牙位表示</span></a>
+            </li>
+			<li class="nav-item">
+                <a class="nav-link" href="demo_setting.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>牙位設定</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    個人設定
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    登入
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+					<div class="row">
+						<div class="col" id="ToothSetting">
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<canvas class="border" id="ToothMap" width="350px" height="732px" ></canvas>
+						</div>
+					</div>
+				</div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
+
+<script>
+var oCanvas_ToothMap = document.getElementById("ToothMap");
+var ctxCanvas_ToothMap = oCanvas_ToothMap.getContext('2d');
+
+//牙齒位置
+var aiImgToothLocation_X = [
+35,30,35,40,55,75,105,150,200,245,275,295,310,315,320,315,
+30,35,45,60,80,100,125,155,190,220,245,265,285,300,310,315];
+var aiImgToothLocation_Y = [
+335,280,230,180,135,100,65,45,45,65,100,135,180,230,280,335,
+445,500,550,595,630,660,680,700,700,680,660,630,595,550,500,445];
+
+
+
+//牙齒狀態點大小
+var iPointRadios = 15;
+var iNowSelect = 0;
+
+
+//牙齒狀態代碼
+var iToothTransparency = 0.8;
+var iToothState_Complete = 0;
+var iToothState_Decay = 1;
+var iToothState_Missing = 2;
+var iToothState_Broken = 3;
+var iToothState_Filling = 4;
+var iToothState_Braces = 5;
+
+//牙齒狀態
+var aiToothState=
+[
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Broken,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Filling,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Decay,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Missing,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Braces,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete,
+iToothState_Complete
+]
+
+//牙齒狀態顏色
+var asTooth_StateColor = 
+[
+"225,225,225",
+"255,0,0",
+"0,0,0",
+"0,255,0",
+"0,0,255",
+"255,255,0",
+];
+
+//牙齒選取顏色
+var asTooth_SelectColor = 
+[
+"rgba(0,0,0,"+iToothTransparency.toString()+")",
+"rgba(0,0,0,"+iToothTransparency.toString()+")",
+"rgba(0,0,0,"+iToothTransparency.toString()+")",
+"rgba(0,0,0,"+iToothTransparency.toString()+")",
+"rgba(0,0,0,"+iToothTransparency.toString()+")",
+"rgba(0,0,0,"+iToothTransparency.toString()+")",
+];
+
+//牙齒狀態說明
+var asTooth_StateDescriptions = 
+[
+"完整",
+"蛀牙",
+"缺牙",
+"斷牙",
+"補牙",
+"牙套",
+];
+
+function Color_ComponentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function Color_RGBToHex(sRGB) {
+	var asRGB_Split = sRGB.split(',');
+  return "#" + ((parseInt(asRGB_Split[0]) << 16) + (parseInt(asRGB_Split[1]) << 8) + parseInt(asRGB_Split[2])).toString(16).padStart(6, '0');
+}
+
+function Color_HEXtoRGB(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function DrawPoint(canvas_obj, x, y, radius, color) {
+	canvas_obj.beginPath();
+
+	canvas_obj.arc(x, y, radius, 0, Math.PI * 2);
+	canvas_obj.fillStyle = color;
+	canvas_obj.fill();
+}
+
+function DrawPonitDescription(canvas_obj, x, y, radius, color, width, text) {
+	canvas_obj.beginPath();
+	canvas_obj.arc(x, y, radius, 0, Math.PI * 2);
+	canvas_obj.strokeStyle = color;
+	canvas_obj.lineWidth = width;
+	canvas_obj.stroke();
+
+
+	canvas_obj.font = "18px sans-serif";
+	canvas_obj.fillStyle = color;
+	canvas_obj.fillText(text, x - radius, y - radius * (1.5));
+}
+
+function isMouseInShape(mx, my, shap_x, shap_y, shap_radius) {
+	var dx = mx - shap_x;
+	var dy = my - shap_y;
+
+	if (dx * dx + dy * dy < shap_radius * shap_radius) {
+		//console.log("isMouseInShape = YES");
+		return (true);
+	}
+	//console.log("isMouseInShape = NO");
+	return (false);
+}
+
+function handleMouseDown(e) {
+	e.preventDefault();
+	e.stopPropagation();
+	//console.log("MouseDown: " + e.offsetX + ", " + e.offsetY);
+
+	for (var i = 0; i < 32; i++) {
+		if (isMouseInShape(e.offsetX, e.offsetY, aiImgToothLocation_X[i], aiImgToothLocation_Y[i], iPointRadios)) {
+			console.log("Select the " + i.toString() + " Tooth.");
+			RePaint();
+			DrawPonitDescription(ctxCanvas_ToothMap, aiImgToothLocation_X[i], aiImgToothLocation_Y[i], iPointRadios, asTooth_SelectColor[aiToothState[i]],2, asTooth_StateDescriptions[aiToothState[i]]);
+			DrawToothStateSelect(i);
+			iNowSelect=i;
+			return;
+		}
+	}
+}
+
+//全部點位重畫
+function RePaint(){
+	ctxCanvas_ToothMap.clearRect(0, 0, oCanvas_ToothMap.width, oCanvas_ToothMap.height);
+	ctxCanvas_ToothMap.drawImage(imgBackGroundObj, 0, 0, 350, 732);
+	for(i=0;i<32;i++){
+		DrawPoint(ctxCanvas_ToothMap, aiImgToothLocation_X[i], aiImgToothLocation_Y[i], iPointRadios, "rgba(" + asTooth_StateColor[aiToothState[i]] + "," + iToothTransparency.toString()+")");
+	}
+}
+
+//生成選擇
+function DrawToothStateSelect(iSelectID){
+	var sHTLString = "";
+	var sCheckedString = "";
+	//console.log("iSelectID = " + iSelectID + ", aiToothState[iSelectID] = " + aiToothState[iSelectID]);
+	for(i=0;i<asTooth_StateDescriptions.length;i++){
+		if(aiToothState[iSelectID].toString() == i.toString()){sCheckedString = "checked";}
+		sHTLString += "<div class='form-check form-check-inline'>";
+		sHTLString += "<input class='form-check-input' style='width:30px;height:30px' type='radio' name='ToothState' id='ToothState"+i.toString()+"' value='"+i.toString()+"' "+sCheckedString+">";
+
+		sHTLString += "<input type='color' class='form-control form-control-color' name='ToothStateColor' id='ToothStateColor_"+i.toString()+"' value='" + Color_RGBToHex(asTooth_StateColor[i]) + "' title='Choose your color' style='width: 30px; height: 30px;padding:0rem !important;'>";
+		sHTLString += "<label class='form-check-label' for='ToothState"+i.toString()+"'>"+asTooth_StateDescriptions[i]+"</label>";
+		sHTLString += "</div>";
+		
+		
+		
+		sCheckedString = "";
+	}
+	$("#ToothSetting").html(sHTLString);
+}
+
+//畫背景
+var imgBackGroundObj = new Image();
+imgBackGroundObj.src = "img/toothmap.png";
+imgBackGroundObj.onload = function(){
+    ctxCanvas_ToothMap.drawImage(imgBackGroundObj, 0, 0, 350, 732);
+}
+
+
+
+//run
+$( document ).ready(function() {
+	RePaint();
+});
+
+oCanvas_ToothMap.onmousedown = handleMouseDown;
+
+//切換牙齒狀態
+$("#ToothSetting").on('click', "input[name='ToothState']", function(){
+	var iNewState = $(this).val();
+	aiToothState[iNowSelect] = parseInt(iNewState);
+	console.log("No. " + iNowSelect + " Tooth State Change to " + asTooth_StateDescriptions[iNewState]);
+	
+	RePaint();
+	DrawPonitDescription(ctxCanvas_ToothMap, aiImgToothLocation_X[iNowSelect], aiImgToothLocation_Y[iNowSelect], iPointRadios, asTooth_SelectColor[aiToothState[iNowSelect]],2, asTooth_StateDescriptions[aiToothState[iNowSelect]]);
+	DrawToothStateSelect(iNowSelect);
+});
+
+//修改牙齒狀態顏色
+$("#ToothSetting").on('change', "input[name='ToothStateColor']", function(){
+	var iChangeToothState = $(this).attr("id").split('_')[1];
+	var iChageColor = $(this).val();
+	var oRGB = Color_HEXtoRGB(iChageColor);
+	
+	console.log(iChangeToothState + " " + iChageColor + " " + oRGB.r+ " " + oRGB.g+ " " + oRGB.b);
+	asTooth_StateColor[iChangeToothState] = oRGB.r + "," +oRGB.g + "," +oRGB.b;
+	
+	RePaint();
+	DrawPonitDescription(ctxCanvas_ToothMap, aiImgToothLocation_X[iNowSelect], aiImgToothLocation_Y[iNowSelect], iPointRadios, asTooth_SelectColor[aiToothState[iNowSelect]],2, asTooth_StateDescriptions[aiToothState[iNowSelect]]);
+	DrawToothStateSelect(iNowSelect);
+});
+</script>
